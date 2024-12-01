@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 typedef struct Node {
     int left;
@@ -54,16 +55,36 @@ int get_input(int **left, int **right) {
     return size;
 }
 
-int main() {
+int calculate_similarity_score(int *left, int *right, int size) {
+    int score = 0;
+    for (int i = 0; i < size; i++) {
+        int count = 0;
+        for (int j = 0; j < size; j++) {
+            if (left[i] == right[j]) {
+                count++;
+            }
+        }
+        score += left[i] * count;
+    }
+    return score;
+}
+
+int main(int ac, char **av) {
     int *left = NULL;
     int *right = NULL;
 
     int size = get_input(&left, &right);
 
-    qsort(left, size, sizeof(int), compare);
-    qsort(right, size, sizeof(int), compare);
+    if (ac == 1 && strcmp(av[1], "1") == 0) {
+        qsort(left, size, sizeof(int), compare);
+        qsort(right, size, sizeof(int), compare);
 
-    printf("Total distance: %d\n", calculate_total_distance(left, right, size));
+        printf("Total distance: %d\n", calculate_total_distance(left, right, size));
+    } else if (ac > 1 || strcmp(av[1], "2") == 0) {
+        printf("Total similarity score: %d\n", calculate_similarity_score(left, right, size));
+    } else {
+        printf("Invalid argument\n");
+    }
 
     free(left);
     free(right);

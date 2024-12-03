@@ -4,15 +4,14 @@ import re
 def solve(data):
     pattern = r'(mul\((\d{1,3}),(\d{1,3})\))|(do\(\))|(don\'t\(\))'
     matches = re.findall(pattern, data)
-    
+
     total = 0
     enabled = True
 
     for match in matches:
         if match[1] and match[2]:
             if enabled:
-                x, y = int(match[1]), int(match[2])
-                total += x * y
+                total += int(match[1]) * int(match[2])
         elif match[3]:
             enabled = True
         elif match[4]:

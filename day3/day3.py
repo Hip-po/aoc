@@ -9,8 +9,7 @@ def solve(data):
     enabled = True
 
     for match in matches:
-        if match[1] and match[2]:
-            if enabled:
+        if match[1] and match[2] and enabled:
                 total += int(match[1]) * int(match[2])
         elif match[3]:
             enabled = True

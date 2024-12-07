@@ -1,4 +1,4 @@
-DAY ?= 1
+DAY ?= 01
 TARGET ?= c
 
 SRC = $(wildcard day$(DAY)/*.$(TARGET))
@@ -13,14 +13,16 @@ all: $(NAME)
 
 ifeq ($(TARGET), c)
 $(NAME): $(OBJ)
-    $(GCC) $(CFLAGS) -o $(NAME) $(OBJ)
+	$(GCC) $(CFLAGS) -o $(NAME) $(OBJ)
 else ifeq ($(TARGET), asm)
 $(NAME): $(SRC)
 	nasm -f elf32 $(SRC) -o $(OBJ)
 	ld -m elf_i386 -o $(NAME) $(OBJ)
+	rm -f day01/*.o
 else ifeq ($(TARGET), py)
 $(NAME): $(SRC)
-	cp $(SRC) $(NAME).py
+	cp $(SRC) $(NAME)
+	chmod +x $(NAME)
 endif
 
 .PHONY: clean

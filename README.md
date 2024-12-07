@@ -5,6 +5,11 @@ This repository contains solutions to the Advent of Code challenges. Each day's 
 ## How to Run
 
 ### Python Solutions
+all dependencies are in the requirements.txt file. To install them run:
+
+```sh
+pip install -r requirements.txt
+```
 
 Each day's Python solution can be run using the following command:
 

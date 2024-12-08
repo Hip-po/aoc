@@ -36,8 +36,6 @@ cat [input_file] | ./day[day]_c
 
 ## personal time
 
-## Personal Time
-
 | Day | Part 1 Time | Part 1 Rank | Part 1 Score | Part 2 Time | Part 2 Rank | Part 2 Score |
 |-----|-------------|-------------|--------------|-------------|-------------|--------------|
 | 7   | 00:12:08    | 1970        | 0            | 00:13:45    | 1254        | 0            |

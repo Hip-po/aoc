@@ -1,10 +1,11 @@
 import sys
+import tqdm
 
 def solve(data):
     stones = list(map(int, ''.join(data).strip().split()))
     blinks = 75
 
-    for _ in range(blinks):
+    for _ in tqdm.tqdm(range(blinks)):
         new_stones = []
         for stone in stones:
             if stone == 0:

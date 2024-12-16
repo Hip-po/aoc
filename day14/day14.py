@@ -43,9 +43,7 @@ def check_christmas_tree_pattern(robots, width, height):
         "...###...",
         "..#####..",
         ".#######.",
-        "#########",
-        "....#....",
-        "....#...."
+        "#########"
     ]
 
     grid = [['.' for _ in range(width)] for _ in range(height)]
